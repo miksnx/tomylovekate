@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Sayang!</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #ffdde1;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    .clock-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .clock-box {
+      background: white;
+      padding: 40px 60px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    #clock {
+      font-size: 5rem;
+      color: #e91e63;
+      font-weight: bold;
+      letter-spacing: 4px;
+    }
+    .slideshow-container {
+      max-width: 100%;
+      display: none;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .slide {
+      display: none;
+      max-width: 300px;
+      width: 80%;
+      height: auto;
+      margin: 0 auto;
+      border: 6px solid white;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: opacity 1s ease-in-out;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 600px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      margin: 50px auto;
+      position: relative;
+      z-index: 2;
+      display: none;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #e91e63;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #333;
+      margin-top: 20px;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    .question {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #e91e63;
+    }
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 50px;
+      height: 70px;
+      border-radius: 50% 50% 45% 45%;
+      animation: float 5s ease-in-out infinite;
+      z-index: 1;
+    }
+    .red { background: radial-gradient(circle at 30% 30%, #f48fb1, #ec407a); }
+    .blue { background: radial-gradient(circle at 30% 30%, #90caf9, #42a5f5); }
+    .green { background: radial-gradient(circle at 30% 30%, #a5d6a7, #66bb6a); }
+    .yellow { background: radial-gradient(circle at 30% 30%, #fff59d, #fdd835); }
+    .purple { background: radial-gradient(circle at 30% 30%, #ce93d8, #ab47bc); }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-1200px) rotate(10deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Balon -->
+  <script>
+    const colors = ['red', 'blue', 'green', 'yellow', 'purple'];
+    for (let i = 0; i < 30; i++) {
+      const balloon = document.createElement('div');
+      balloon.className = 'balloon ' + colors[Math.floor(Math.random() * colors.length)];
+      balloon.style.left = Math.random() * 100 + '%';
+      balloon.style.animationDelay = (Math.random() * 3) + 's';
+      balloon.style.animationDuration = (4 + Math.random() * 2) + 's';
+      document.body.appendChild(balloon);
+    }
+  </script>
+
+  <!-- Musik Otomatis -->
+  <audio id="bg-music" src="Happy Birthday.mp3" autoplay muted loop></audio>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('bg-music');
+      audio.muted = false;
+      audio.play().catch(e => {
+        console.log("Autoplay diblokir, menunggu interaksi user.");
+      });
+    });
+  </script>
+
+  <!-- Jam Digital -->
+  <div class="clock-container">
+    <div class="clock-box">
+      <div id="clock">00:00:12</div>
+    </div>
+  </div>
+
+  <!-- Slideshow Foto Kenangan -->
+  <div class="slideshow-container" id="slideshow">
+    <img class="slide" src="foto1.HEIC" alt="Kenangan 1">
+    <img class="slide" src="foto2.JPG" alt="Kenangan 2">
+    <img class="slide" src="foto3.HEIC" alt="Kenangan 3">
+    <img class="slide" src="foto4.HEIC" alt="Kenangan 4">
+    <img class="slide" src="foto5.HEIC" alt="Kenangan 5">
+    <img class="slide" src="foto6.HEIC" alt="Kenangan 6">
+    <img class="slide" src="foto7.HEIC" alt="Kenangan 7">
+    <img class="slide" src="foto8.JPG" alt="Kenangan 8">
+    <img class="slide" src="foto9.HEIC" alt="Kenangan 9">
+    <img class="slide" src="foto10.HEIC" alt="Kenangan 10">
+    <img class="slide" src="foto11.jpg" alt="Kenangan 11">
+    <img class="slide" src="foto12.HEIC" alt="Kenangan 12">
+  </div>
+
+  <!-- Kartu Ucapan -->
+  <div class="card" id="birthday-card">
+    <h1>Happy 17th Birthday, Cayank kuu! 🎉</h1>
+    <p>Cieee tambah tuaaa cewekk acuuu.</p>
+    <p>Aku cuma mau bilang: kamu itu pantas untuk semua hal indah yang kamu punya dan yang akan kamu capai nanti. Kamu itu luar biasa — kamu tryhard, kamu hardworking, dan aku sebagai cowok kamu, bener bener bangga banget sama kamu. 🥹❤️</p>
+    <p>I hope semua cita-cita kamu tercapai. Tetap semangat buat masa depan kamu. Dan Aku yakin Kamu pasti bisa!</p>
+    <p>Dan terakhir... aku sayang banget cama kamu baby mwahh. Happy birthday cayangg, I hope this year will be a great year for you, and always remember that i will always be there for you I love you. 💕</p>
+    <div class="question">From your Baby 💫</div>
+    <div class="footer">Dengan cinta,<br>ayapyuu ❤️</div>
+  </div>
+
+  <script>
+    // Jam Digital Countdown ke 00:00
+    let countdown = 12;
+    const clock = document.getElementById("clock");
+    const clockContainer = document.querySelector(".clock-container");
+    const slideshow = document.getElementById("slideshow");
+    const birthdayCard = document.getElementById("birthday-card");
+    const slides = document.getElementsByClassName("slide");
+
+    const clockInterval = setInterval(() => {
+      const minutes = String(Math.floor(countdown / 60)).padStart(2, '0');
+      const seconds = String(countdown % 60).padStart(2, '0');
+      clock.textContent = `00:${minutes}:${seconds}`;
+
+      if (countdown === 0) {
+        clearInterval(clockInterval);
+        clockContainer.style.display = 'none';
+        slideshow.style.display = 'block';
+        showSlides();
+      }
+      countdown--;
+    }, 1000);
+
+    // Slideshow logic
+    let slideIndex = 0;
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.opacity = 0;
+        slides[i].style.display = "none";
+      }
+      if (slideIndex < slides.length) {
+        slides[slideIndex].style.display = "block";
+        slides[slideIndex].style.opacity = 1;
+        slideIndex++;
+        setTimeout(showSlides, 2000);
+      } else {
+        birthdayCard.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
